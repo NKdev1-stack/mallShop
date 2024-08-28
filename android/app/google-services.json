@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912544443039",
+    "project_id": "ecommerce-mallshop",
+    "storage_bucket": "ecommerce-mallshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912544443039:android:bf2fd2355e8785860a90aa",
+        "android_client_info": {
+          "package_name": "com.example.mallshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgp2RVthjNvWVLCv3JB1WP3aFV93n9KPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

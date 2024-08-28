@@ -79,7 +79,6 @@ class _MainScreenState extends State<MainScreen> {
                        
             ),
           ),
-
            const Padding(
           padding:  EdgeInsets.only(left: 4,right: 4),
           child: Icon(Icons.account_balance_wallet_outlined),
