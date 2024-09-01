@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Text_Form_Field extends StatelessWidget {
   TextEditingController controller;
-  Icon icon;
   String hintText;
-   Text_Form_Field({super.key,required this.controller, required this.hintText,required this.icon});
+  bool obsecureText;
+  IconButton? IconforpasswordVisibility;
+  
+   Text_Form_Field({super.key,required this.controller, required this.hintText,  required this.obsecureText, this.IconforpasswordVisibility});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +20,16 @@ class Text_Form_Field extends StatelessWidget {
                 ),
               child: TextFormField(
                 controller: controller,
+                obscureText: obsecureText,
                 decoration:  InputDecoration(
                   hintText: hintText,
                   contentPadding: const EdgeInsets.all(20 ),
                   suffixIcon:  Padding(
                     padding: EdgeInsets.only(right: 16),
-                    child: icon,
+                    child: InkWell(
+                      
+                      onTap: (){},
+                      child: IconforpasswordVisibility??Text("")),
                   ),
                   border: InputBorder.none,
                   

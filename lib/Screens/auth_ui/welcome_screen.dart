@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mallshop/Controllers/google_signIn_controller.dart';
+import 'package:mallshop/Screens/auth_ui/signIn.dart';
 import 'package:mallshop/Utils/app_constant.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -86,7 +87,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                            
                              InkWell(
-                              onTap: (){},
+                              onTap: (){
+                                Get.to(()=>SignIn());
+                              },
                                child: Card(
                                 elevation: 5,
                                 color: Colors.white,

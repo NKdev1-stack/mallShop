@@ -1,5 +1,7 @@
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserModel {
 
   final String UID;
@@ -14,6 +16,7 @@ class UserModel {
   final bool isAdmin;
   final bool isActive;
   final dynamic createdOn;
+  final String CityName;
   UserModel({
     required this.UID,
     required this.userName,
@@ -27,6 +30,7 @@ class UserModel {
     required this.isAdmin,
     required this.isActive,
     required this.createdOn,
+    required this.CityName,
   });
 
 
@@ -45,6 +49,7 @@ class UserModel {
       'isAdmin': isAdmin,
       'isActive': isActive,
       'createdOn': createdOn,
+      'CityName':CityName
     };
   }
 
@@ -62,6 +67,7 @@ class UserModel {
       isAdmin: map['isAdmin'] as bool,
       isActive: map['isActive'] as bool,
       createdOn: map['createdOn'] as dynamic,
+      CityName: map['CityName'] as String
     );
   }
 }

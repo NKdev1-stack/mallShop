@@ -66,7 +66,7 @@ class GoogleSigninController {
  UserModel userModel = UserModel(UID: userCredential.user!.uid.toString(), userName: userCredential.user!.displayName.toString(), 
           email: userCredential.user!.email.toString(), phone: userCredential.user!.phoneNumber.toString(), userImg:userCredential.user!.photoURL!,
            userDeviceToken: "", country: "", userAddress: "", street: "", 
-           isAdmin: false, isActive: true, createdOn: DateTime.now());
+           isAdmin: false, isActive: true, createdOn: DateTime.now(), CityName: "");
            await FirebaseFirestore.instance.collection("Users").doc(UID).set(userModel.toMap());
             EasyLoading.dismiss();
            Get.offAll(()=>const MainScreen());

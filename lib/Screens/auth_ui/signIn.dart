@@ -6,14 +6,19 @@ import 'package:mallshop/Screens/auth_ui/singup.dart';
 import 'package:mallshop/Utils/app_constant.dart';
 import 'package:mallshop/Widgets/text_form_widget.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
    SignIn({super.key});
 
-  TextEditingController _NameController = TextEditingController();
+  @override
+  State<SignIn> createState() => _SignInState();
+}
 
+class _SignInState extends State<SignIn> {
   TextEditingController _EmailController = TextEditingController();
 
   TextEditingController _passwordController = TextEditingController();
+
+  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -50,21 +55,36 @@ class SignIn extends StatelessWidget {
               ),
               
               Text_Form_Field(
-                  controller: _NameController,
+                obsecureText: false,
+                  controller: _EmailController,
                   hintText: "Email",
-                  icon: Icon(
-                    Icons.email,
-                    size: 28,
-                    color: Colors.grey.shade700,
-                  )),
-              Text_Form_Field(
-                  controller: _NameController,
-                  hintText: "Password",
-                  icon: Icon(
-                    Icons.password_outlined,
-                    size: 28,
-                    color: Colors.grey.shade700,
-                  )),
+                 
+                 ),
+              InkWell(
+                onTap: (){
+                  
+                },
+                child: Text_Form_Field(
+                  obsecureText: obscureText,
+                    controller: _passwordController,
+                    hintText: "Password",
+                    
+                    IconforpasswordVisibility:
+                    obscureText? IconButton(onPressed: (){
+                      setState(() {
+                        obscureText = false;
+                      });
+                    }, icon: const Icon(Icons.visibility_off))
+                    :IconButton(onPressed: (){
+                                              setState(() {
+                                                obscureText = true;
+                                              });
+
+                    }, icon: const Icon(Icons.visibility))
+
+                    ),
+              ),
+                
               Container(
                 margin:const EdgeInsets.all(30),
                 alignment: Alignment.center,
