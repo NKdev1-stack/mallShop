@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mallshop/Screens/auth_ui/welcome_screen.dart';
-import 'package:mallshop/Screens/user_panel/main_screen.dart';
+import 'package:mallshop/Screens/user_panel/main_screen_user.dart';
 import 'package:mallshop/Utils/app_constant.dart';
 
 class Splash extends StatefulWidget {

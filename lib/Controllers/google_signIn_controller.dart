@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mallshop/Models/user_model.dart';
-import 'package:mallshop/Screens/user_panel/main_screen.dart';
+import 'package:mallshop/Screens/user_panel/main_screen_user.dart';
 
 // Extends class from GetX Controllerfor Managing state: Easily update and access state variables
 class GoogleSigninController {
@@ -34,7 +33,7 @@ class GoogleSigninController {
         final bool OlduserorNot = await isAlreadyRegistered(UID);
 
         if(OlduserorNot){
-          Get.offAll(()=>const MainScreen());
+          Get.offAll(()=>const UserPanel());
         }else if(userCredential!=null){
          
             sendToDB(UID,userCredential); 
@@ -69,7 +68,7 @@ class GoogleSigninController {
            isAdmin: false, isActive: true, createdOn: DateTime.now(), CityName: "");
            await FirebaseFirestore.instance.collection("Users").doc(UID).set(userModel.toMap());
             EasyLoading.dismiss();
-           Get.offAll(()=>const MainScreen());
+           Get.offAll(()=>const UserPanel());
 
         
 

@@ -102,7 +102,7 @@ class _SignUpState extends State<SignUp> {
                   } else {
                      UserCredential? userCredential =
                      await _signupController.signUpwithEmail(
-                        Name, Email, "", "", Password, "");
+                        Name, Email, "", "", Password);
                     
                     if(userCredential!=null){
                       Get.snackbar('Email Verification', "Kindly Check your Email to verify the Account");
