@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_utils/get_utils.dart';
+import 'package:mallshop/Screens/user_panel/all_categories.dart';
 import 'package:mallshop/Utils/app_constant.dart';
+import 'package:mallshop/Widgets/banner_Carasoul.dart';
+import 'package:mallshop/Widgets/category_widget.dart';
+import 'package:mallshop/Widgets/sales_products.dart';
+
+import '../../Widgets/heading_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,14 +21,32 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-            _appBar(),
-            
-        ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            const SizedBox(height: 10,),
+            // App Bar Widget
+              _appBar(),
+              // Carasoul Widget for showing banner 
+            BannerCarasoul_widget(),
+            // Heading Widget for Categories
+              HeadingWidget(onTap: (){
+               Get.to(()=>const AllCategories());
+              },title: 'Categories',subtitle: 'Buy in Quantity Only',buttonText: 'See More',),
+            // Category Widget
+            const CategoryWidget(),
+            // Sales heading
+             HeadingWidget(onTap: (){},title: 'Sales',subtitle: 'Fresh WholeSale for you',buttonText: 'Shop Now',),
+            // Sales Product Widgets
+               const SalesProducts_Widgets()
+          ],
+        ),
       ),
     );
   }
+
+
    Widget _appBar() {
     return  Container(
       margin: const EdgeInsets.all(10),
@@ -88,4 +115,6 @@ class _HomeState extends State<Home> {
     
     
   }
+
+  
 }

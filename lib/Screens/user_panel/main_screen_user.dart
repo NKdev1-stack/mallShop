@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -36,22 +35,29 @@ class _UserPanelState extends State<UserPanel> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: CurvedNavigationBar(
-          height: 48,
-          onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
+        bottomNavigationBar: BottomNavigationBar(
+          
+          currentIndex: 0,
+          elevation: 10,
+          iconSize: 26,
+          type:  BottomNavigationBarType.fixed,
+          onTap: (index){
+              setState(() {
+                _selectedIndex = index;
+              });
           },
-          animationDuration: const Duration(milliseconds: 200),
-          backgroundColor: AppConstant.appMaincolor, // Replace with AppConstant.appMaincolor
-          items: const [
-            Icon(Icons.home),
-            Icon(Icons.message),
-            Icon(Icons.delivery_dining),
-            Icon(Icons.account_circle),
-          ],
-        ),
+         
+          items:const [
+           BottomNavigationBarItem(
+            
+            icon: Icon(Icons.home,color: Colors.black,),label: "Home"),
+
+            BottomNavigationBarItem(icon: Icon(Icons.notifications,color: Colors.black),label: "Update"),
+
+             BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,color: Colors.black),label: "Order"),
+
+              BottomNavigationBarItem(icon: Icon(Icons.account_circle_sharp,color: Colors.black),label: "Profile"),
+        ]),
         body: _pages[_selectedIndex],
       ),
     );

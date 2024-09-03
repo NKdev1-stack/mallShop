@@ -18,7 +18,7 @@ class UserChecking extends StatefulWidget {
 }
 
 class _UserCheckingState extends State<UserChecking> {
-  getUserDataController _getuserdataController = getUserDataController();
+  getUserDataController _getuserdataController = new getUserDataController();
   bool admin = false;
   @override
    initState() {
